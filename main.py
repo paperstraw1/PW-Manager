@@ -70,18 +70,7 @@ def password_list():
             message += f"Password for {name} is {password}\n"
         messagebox.showinfo("Passwords", message)
     else:
-        messagebox.showinfo("Passwords", "Password List Empty")
-         
-         
-         
-         
-         
-         
-         
-         
-         
-         
-#FINISH HERE Line 75      
+        messagebox.showinfo("Passwords", "Password List Empty")    
          
 def RNG():
     random_number = random.randint(243985734985, 9237894293847232)  
