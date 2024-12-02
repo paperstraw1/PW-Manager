@@ -65,7 +65,7 @@ def password_list():
 
 #Print Message
     if passwordList:
-        message = "List of passwordList:\n"
+        message = "List of Passwords: \n"
         for name, password in passwordList.items():
             message += f"Password for {name} is {password}\n"
         messagebox.showinfo("Passwords", message)
@@ -100,9 +100,8 @@ if __name__ == "__main__":
     window.title("The Best Password Manager!")
 
     #Username line
-    #change labelname
-    labelName = tk.Label(window, text="Website Name:")
-    labelName.grid(row=0, column=0, padx=15, pady=15)
+    labelUsername = tk.Label(window, text="Website Name:")
+    labelUsername.grid(row=0, column=0, padx=15, pady=15)
     usernameInput = tk.Entry(window)
     usernameInput.grid(row=0, column=1, padx=15, pady=15)
 
@@ -125,7 +124,7 @@ if __name__ == "__main__":
     buttonDelete = tk.Button(window, text="Delete", command=delete)
     buttonDelete.grid(row=3, column=1, padx=10, pady=5)
 
-    # RNG
+    #RNG
     buttonRNG = tk.Button(text="Create Random Password", command=RNG)
     buttonRNG.grid(row=3, column=0, padx=10, pady=20)
     
