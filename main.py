@@ -105,36 +105,36 @@ if __name__ == "__main__":
 
     #Username line
     labelUsername = tk.Label(window, text="Website Name:")
-    labelUsername.grid(row=0, column=0, padx=15, pady=15)
+    labelUsername.grid(column=0, row=0, padx=15, pady=15)
     usernameInput = tk.Entry(window)
-    usernameInput.grid(row=0, column=1, padx=15, pady=15)
+    usernameInput.grid(column=1, row=0, padx=15, pady=15)
 
     #Password line
     #change labelpassword
     labelPassword = tk.Label(window, text="Password:")
-    labelPassword.grid(row=1, column=0, padx=10, pady=5)
+    labelPassword.grid(column=0, row=1, padx=10, pady=5)
     passwordInput = tk.Entry(window)
-    passwordInput.grid(row=1, column=1, padx=10, pady=5)
+    passwordInput.grid(column=1, row=1, padx=10, pady=5)
 
     #Password List
     buttonPassword_list = tk.Button(window, text="Password List", command=password_list)
-    buttonPassword_list.grid(row=2, column=0, padx=10, pady=5)
+    buttonPassword_list.grid(column=0, row=2, padx=10, pady=5)
     
     #Add
     buttonAdd = tk.Button(window, text="Add", command=add)
-    buttonAdd.grid(row=2, column=1, padx=10, pady=5)
+    buttonAdd.grid( column=1, row=2, padx=10, pady=5)
 
     #Delete
     buttonDelete = tk.Button(window, text="Delete", command=delete)
-    buttonDelete.grid(row=3, column=1, padx=10, pady=5)
+    buttonDelete.grid(column=1, row=3, padx=10, pady=5)
 
     #RNG
     buttonRNG = tk.Button(text="Create Random Password", command=RNG)
-    buttonRNG.grid(row=3, column=0, padx=10, pady=20)
+    buttonRNG.grid(column=0, row=3, padx=10, pady=20)
     
     #Copy to Clipboard
     buttonCopy = tk.Button(window, text="Copy to Clipboard", command=clipboard)
-    buttonCopy.grid(row=4, column=0, columnspan=2, pady=10)
+    buttonCopy.grid(column=0, row=4, columnspan=2, pady=10)
     
     
     window.mainloop()
