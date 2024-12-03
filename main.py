@@ -1,22 +1,26 @@
 import random
 import tkinter as tk
 import secrets
-#import string
+import string
+import uuid
 from tkinter import messagebox
 
 
-#Adding usernames and passwords to list 
+#Gathering user input to add usernames and passwords to list 
 
 def add():
     #User input
     username = usernameInput.get()
     password = passwordInput.get()
+    
+    #Saving user input and printing a complete or error message
     if username and password:
         with open("passwordList.txt", 'a') as f:
             f.write(f"{username} {password}\n")
         messagebox.showinfo("Complete", "Password Saved")
     else:
         messagebox.showerror("Error", "Missing Information")
+
 
 #Deleting usernames and passwords from list
 
@@ -27,15 +31,13 @@ def delete():
     #List to store passwords
     storePasswords = []
 
-    #
+    #Deleting password
     try:
         with open("passwordList.txt", 'r') as f:
             for x in f:
                 i = x.split(' ')
                 if i[0] != username:
                     storePasswords.append(f"{i[0]} {i[1]}")
-
-        # writing the modified data back to the file
         with open("passwordList.txt", 'w') as f:
             for line in storePasswords:
                 f.write(line)
@@ -54,7 +56,7 @@ def password_list():
     #List for all the passwords
     passwordList = {}
 
-    #Check password list; if there are no passwords stored it will print an error
+    #Check password list; if there are no passwords stored, it will print an error
     try:
         with open("passwordList.txt", 'r') as f:
             for x in f:
@@ -73,8 +75,11 @@ def password_list():
         messagebox.showinfo("Passwords", "Password List Empty")    
          
 def RNG():
-    random_number = random.randint(243985734985, 9237894293847232)  
-       
+    #random_number = random.randint(243985734985, 9237894293847232)  
+    
+    #Generate random password and make it into a python string
+    random_number = str(uuid.uuid4())
+    
     #Print the password
     if random_number: 
         messagebox.showinfo("Randomly Generated Password", random_number)
