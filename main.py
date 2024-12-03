@@ -21,13 +21,13 @@ def clipboard():
 
 def add():
     #User input
-    username = usernameInput.get()
+    web = usernameInput.get()
     password = passwordInput.get()
     
     #Saving user input and printing a complete or error message
-    if username and password:
+    if web and password:
         with open("passwordList.txt", 'a') as f:
-            f.write(f"{username} {password}\n")
+            f.write(f"{web} {password}\n")
         messagebox.showinfo("Complete", "Password Saved")
     else:
         messagebox.showerror("Error", "Missing Information")
@@ -37,7 +37,7 @@ def add():
 
 def delete():
     #Username input
-    username = usernameInput.get()
+    web = usernameInput.get()
 
     #List to store passwords
     storePasswords = []
@@ -47,7 +47,7 @@ def delete():
         with open("passwordList.txt", 'r') as f:
             for x in f:
                 i = x.split(' ')
-                if i[0] != username:
+                if i[0] != web:
                     storePasswords.append(f"{i[0]} {i[1]}")
         with open("passwordList.txt", 'w') as f:
             for line in storePasswords:
@@ -55,10 +55,10 @@ def delete():
 
         #Password Successfully Deleted
         messagebox.showinfo(
-            "Success", f"User {username} deleted successfully!")
+            "Success", f"Password{web} deleted successfully!")
         #Error deleteing password
     except Exception as e:
-        messagebox.showerror("Error", f"Error deleting user {username}: {e}")
+        messagebox.showerror("Error", f"Error deleting password {web}: {e}")
         
    
 #Password list
@@ -79,8 +79,8 @@ def password_list():
 #Print Message
     if passwordList:
         message = "List of Passwords: \n"
-        for name, password in passwordList.items():
-            message += f"Password for {name} is {password}\n"
+        for web, password in passwordList.items():
+            message += f"Password for {web} is {password}\n"
         messagebox.showinfo("Passwords", message)
     else:
         messagebox.showinfo("Passwords", "Password List Empty")    
