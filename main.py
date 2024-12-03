@@ -3,8 +3,19 @@ import tkinter as tk
 import secrets
 import string
 import uuid
+import pyperclip
 from tkinter import messagebox
 
+
+#Copy to clipboard
+def clipboard():
+    password = passwordInput.get()  # Get the password from the input field
+    if password:
+        pyperclip.copy(password)
+        messagebox.showinfo("Clipboard", "Password copied to clipboard!")
+    else:
+        messagebox.showerror("Error", "No password to copy.")
+        
 
 #Gathering user input to add usernames and passwords to list 
 
@@ -75,14 +86,13 @@ def password_list():
         messagebox.showinfo("Passwords", "Password List Empty")    
          
 def RNG():
-    #random_number = random.randint(243985734985, 9237894293847232)  
+    #Generate random password
+    password = ''.join(secrets.choice(string.ascii_letters + string.digits + "!@#$%^&*") for _ in range(15))
     
-    #Generate random password and make it into a python string
-    random_number = str(uuid.uuid4())
-    
-    #Print the password
-    if random_number: 
-        messagebox.showinfo("Randomly Generated Password", random_number)
+    #Display password
+    passwordInput.delete(0, tk.END)
+    passwordInput.insert(0, password)
+    messagebox.showinfo("Generated Password", f"Your new password: {password}")
         
         
 #Loop/Dimensions  
@@ -121,6 +131,10 @@ if __name__ == "__main__":
     #RNG
     buttonRNG = tk.Button(text="Create Random Password", command=RNG)
     buttonRNG.grid(row=3, column=0, padx=10, pady=20)
+    
+    #Copy to Clipboard
+    buttonCopy = tk.Button(window, text="Copy to Clipboard", command=clipboard)
+    buttonCopy.grid(row=4, column=0, columnspan=2, pady=10)
     
     
     window.mainloop()
