@@ -84,9 +84,11 @@ def password_list():
         messagebox.showinfo("Passwords", message)
     else:
         messagebox.showinfo("Passwords", "Password List Empty")    
+    
          
+#Generate random password
+    
 def RNG():
-    #Generate random password
     password = ''.join(secrets.choice(string.ascii_letters + string.digits + "!@#$%^&*") for _ in range(15))
     
     #Display password
