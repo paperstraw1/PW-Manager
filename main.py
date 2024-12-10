@@ -89,13 +89,13 @@ def password_list():
 #Generate random password
     
 def RNG():
-    password = ''.join(secrets.choice(string.ascii_letters + string.digits + "!@#$%^&*") for _ in range(5))
+    password = ''.join(secrets.choice(string.ascii_letters + string.digits + "!@#$%^&*") for _ in range(15))
     
     #Display password
     passwordInput.delete(0, ctk.END)
     passwordInput.insert(0, password)
     messagebox.showinfo("Generated Password", f"Your new password: {password}")
-        
+    
         
 #Loop/Dimensions  
         
