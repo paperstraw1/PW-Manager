@@ -1,5 +1,5 @@
 import random
-import tkinter as tk
+import customtkinter as ctk
 import secrets
 import string
 import uuid
@@ -89,10 +89,10 @@ def password_list():
 #Generate random password
     
 def RNG():
-    password = ''.join(secrets.choice(string.ascii_letters + string.digits + "!@#$%^&*") for _ in range(15))
+    password = ''.join(secrets.choice(string.ascii_letters + string.digits + "!@#$%^&*") for _ in range(5))
     
     #Display password
-    passwordInput.delete(0, tk.END)
+    passwordInput.delete(0, ctk.END)
     passwordInput.insert(0, password)
     messagebox.showinfo("Generated Password", f"Your new password: {password}")
         
@@ -100,43 +100,43 @@ def RNG():
 #Loop/Dimensions  
         
 if __name__ == "__main__":
-    window = tk.Tk()
-    window.iconbitmap("C:/Users/njade/OneDrive/Documents/PW Manager V2/PW-Manager/logo.ico")      
-    window.geometry("350x250")
-    window.title("The Best Password Manager!")
+    root = ctk.CTk()
+    root.iconbitmap("C:/Users/njade/OneDrive/Documents/PW Manager V2/PW-Manager/logo.ico")      
+    root.geometry("350x250")
+    root.title("The Best Password Manager!")
 
     #Username line
-    labelUsername = tk.Label(window, text="Website Name:")
+    labelUsername = ctk.CTkLabel(root, text="Website Name:")
     labelUsername.grid(column=0, row=0, padx=15, pady=15)
-    usernameInput = tk.Entry(window)
+    usernameInput = ctk.CTkEntry(root)
     usernameInput.grid(column=1, row=0, padx=15, pady=15)
 
     #Password line
     #change labelpassword
-    labelPassword = tk.Label(window, text="Password:")
+    labelPassword = ctk.CTkLabel(root, text="Password:")
     labelPassword.grid(column=0, row=1, padx=10, pady=5)
-    passwordInput = tk.Entry(window)
+    passwordInput = ctk.CTkEntry(root)
     passwordInput.grid(column=1, row=1, padx=10, pady=5)
 
     #Password List
-    buttonPassword_list = tk.Button(window, text="Password List", command=password_list)
+    buttonPassword_list = ctk.CTkButton(root, text="Password List", command=password_list)
     buttonPassword_list.grid(column=0, row=2, padx=10, pady=5)
     
     #Add
-    buttonAdd = tk.Button(window, text="Add", command=add)
+    buttonAdd = ctk.CTkButton(root, text="Add", command=add)
     buttonAdd.grid( column=1, row=2, padx=10, pady=5)
 
     #Delete
-    buttonDelete = tk.Button(window, text="Delete", command=delete)
+    buttonDelete = ctk.CTkButton(root, text="Delete", command=delete)
     buttonDelete.grid(column=1, row=3, padx=10, pady=5)
 
     #RNG
-    buttonRNG = tk.Button(text="Create Random Password", command=RNG)
+    buttonRNG = ctk.CTkButton(root, text="Create Random Password", command=RNG)
     buttonRNG.grid(column=0, row=3, padx=10, pady=20)
     
     #Copy to Clipboard
-    buttonCopy = tk.Button(window, text="Copy to Clipboard", command=clipboard)
+    buttonCopy = ctk.CTkButton(root, text="Copy to Clipboard", command=clipboard)
     buttonCopy.grid(column=0, row=4, columnspan=2, pady=10)
     
     
-    window.mainloop()
+    root.mainloop()
