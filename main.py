@@ -101,6 +101,8 @@ def RNG():
         
 if __name__ == "__main__":
     root = ctk.CTk()
+    
+    #Company Logo
     root.iconbitmap("C:/Users/njade/OneDrive/Documents/PW Manager V2/PW-Manager/logo.ico")      
     root.geometry("350x250")
     root.title("The Best Password Manager!")
